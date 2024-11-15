@@ -1,0 +1,26 @@
+{% extends "produtos\base.html" %}
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+{% block content %}
+<h2>Página Inicial</h2>
+
+{% for produto in produtos %}
+<div class="card mt-6 mb-2">
+    <div class="card-body">
+        <h5 class="card-title">{{produto.nome}}</h5>
+        <h6>{{produto.preco}}</h6>
+        <P>Validade:</p>
+            {% if produto.validade == None %}
+            <p>Este Produto não possui Validade determinada</p>
+            {% else %}
+                {{produto.validade}}
+            {% endif%}
+        </h6>
+    </div>
+</div>
+
+{% endfor%}
+        {% endblock %}
